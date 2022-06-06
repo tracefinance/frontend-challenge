@@ -1,4 +1,4 @@
-# :nail_care: Frontend challenge - Formulário de cadastro
+# :nail_care: Frontend challenge - Cadastro de usuário
 
 Desafio para avaliar o candidato que queira ingressar na Trace Finance como desenvolvedor frontend
 
