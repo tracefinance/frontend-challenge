@@ -14,9 +14,27 @@ O [layout](https://www.figma.com/file/bVq19HGbDCOCScIwLIBnbp/Teste-t%C3%A9cnico?
 
 Temos duas rotas de uma API de usuário para que você possa desenvolver a aplicação 
 
-**POST** 
 ```sh
 "https://629f52338b939d3dc29519e3.mockapi.io/api/challenge/user"
+```
+
+#### Criar usuário
+```
+POST /user
+{
+    "firstName": String,
+    "lastName": String,
+    "email": String,
+    "password": String,
+    "country": String,
+    "dateOfBirthday": Date,
+    "bio": String,
+    "receiveNotifications: Boolean"
+}
+```
+#### Obter dados do usuário
+```
+GET /user/:id
 ```
 
 **GET** 
