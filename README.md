@@ -28,6 +28,27 @@ Caso você resolva fazer os seguintes itens, você ganhará um bônus durante a 
 - Máscara nos campos 
 - Testes
 
+## Orientações
+
+Você deverá fazer um clone do projeto. Crie uma branch com o seu nome e sobrenome e depois instale as dependências.
+
+**1. Clone do projeto** 
+```sh
+git clone "https://github.com/tracefinance/frontend-challenge.git"
+```
+**3. Criando nova branch**
+```sh
+git checkout -b "meunomeEsobrenome"
+```
+**4. Instalando as dependências**
+```sh
+yarn install
+```
+**4. Agora é rodar a aplicação**
+```sh
+yarn dev
+```
+
 
 
 
