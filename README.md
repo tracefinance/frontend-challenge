@@ -28,7 +28,7 @@ POST /user
     "country": String,
     "dateOfBirthday": Date,
     "bio": String,
-    "receiveNotifications: Boolean"
+    "receiveNotifications": Boolean
 }
 ```
 #### Obter dados do usuário
