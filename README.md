@@ -15,9 +15,8 @@ O [layout](https://www.figma.com/file/bVq19HGbDCOCScIwLIBnbp/Teste-t%C3%A9cnico?
 Temos duas rotas de uma API de usuário para que você possa desenvolver a aplicação 
 
 ```sh
-"https://629f52338b939d3dc29519e3.mockapi.io/api/challenge/user"
+"https://629f52338b939d3dc29519e3.mockapi.io/api/challenge"
 ```
-
 #### Criar usuário
 ```
 POST /user
@@ -36,12 +35,6 @@ POST /user
 ```
 GET /user/:id
 ```
-
-**GET** 
-```sh
-"https://629f52338b939d3dc29519e3.mockapi.io/api/challenge/user/:id"
-```
-
 ## O que será avaliado ?
 
 - HTML semântico, limpo e claro
