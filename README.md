@@ -12,7 +12,7 @@ instalar alguma outra lib, caso entenda que faça sentido.
 O layout fornecido não é muito complexo, nosso maior interesse é ver como você reutliza código e resolve os desafios os
 desafios encontrados nele. 
 
-## O que será avaliado 
+## O que será avaliado ?
 
 - Código semântico, limpo e claro
 - Tipagem 
