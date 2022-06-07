@@ -4,7 +4,7 @@ Desafio para avaliar o candidato que queira ingressar na Trace Finance como dese
 
 ## O desafio
 
-Seu objetivo é criar uma jornada simples de cadastro de usuário utlizando Next e Stitches, seguindo o layout. Você também pode 
+Seu objetivo é criar uma jornada simples de cadastro de usuário utlizando [Next](https://nextjs.org/) e [Stitches](https://stitches.dev/), seguindo o layout. Você também pode 
 instalar alguma outra lib, caso entenda que faça sentido. 
 
 ## Sobre o layout
