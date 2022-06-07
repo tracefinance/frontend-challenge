@@ -4,20 +4,32 @@ Desafio para avaliar o candidato que queira ingressar na Trace Finance como dese
 
 ## O desafio
 
-Seu objetivo é criar uma jornada simples de cadastro de usuário utlizando [Next](https://nextjs.org/) e [Stitches](https://stitches.dev/), seguindo o layout. Você também pode 
-instalar alguma outra lib, caso entenda que faça sentido. 
+Seu objetivo é criar uma jornada simples de cadastro de usuário utlizando [Next](https://nextjs.org/), seguindo o layout. É obrigatório o uso de algum framework de estilo, que trabalhe com o conceito css-in-js. Você também pode instalar alguma outra lib, caso entenda que faça sentido.  
 
 ## Sobre o layout
 
-O layout fornecido não é muito complexo, nosso maior interesse é ver como você reutliza código e resolve os desafios os
-desafios encontrados nele. 
+O [layout](https://www.figma.com/file/bVq19HGbDCOCScIwLIBnbp/Teste-t%C3%A9cnico?node-id=0%3A1) fornecido não é muito complexo, nosso maior interesse é ver como você reutliza código e resolve os desafios. 
+
+## Sobre a API
+
+Temos duas rotas de uma API de usuário para que você possa desenvolver a aplicação 
+
+**POST** 
+```sh
+"https://629f52338b939d3dc29519e3.mockapi.io/api/challenge/user"
+```
+
+**GET** 
+```sh
+"https://629f52338b939d3dc29519e3.mockapi.io/api/challenge/user/:id"
+```
 
 ## O que será avaliado ?
 
-- Código semântico, limpo e claro
+- HTML semântico, limpo e claro
+- CSS responsivo, semântico, reutilizável e seguindo boas práticas
 - Tipagem 
-- Componentização 
-- Responsividade 
+- Componentização
 - Conhecimento em javascript 
 - Utilização correta do git 
 
@@ -25,6 +37,7 @@ desafios encontrados nele.
 
 Caso você resolva fazer os seguintes itens, você ganhará um bônus durante a avaliação do seu teste:
 
+- Utilizar [Stitches](https://stitches.dev/)
 - Máscara nos campos 
 - Testes
 
