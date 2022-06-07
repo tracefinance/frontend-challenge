@@ -44,7 +44,7 @@ git checkout -b "meunomeEsobrenome"
 ```sh
 yarn install
 ```
-**4. Agora é rodar a aplicação**
+**5. Agora é rodar a aplicação**
 ```sh
 yarn dev
 ```
