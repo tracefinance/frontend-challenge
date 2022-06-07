@@ -60,15 +60,15 @@ Você deverá fazer um clone do projeto. Crie uma branch com o seu nome e sobren
 ```sh
 git clone "https://github.com/tracefinance/frontend-challenge.git"
 ```
-**3. Criando nova branch**
+**2. Criando nova branch**
 ```sh
 git checkout -b "meunomeEsobrenome"
 ```
-**4. Instalando as dependências**
+**3. Instalando as dependências**
 ```sh
 yarn install
 ```
-**5. Agora é rodar a aplicação**
+**4. Agora é rodar a aplicação**
 ```sh
 yarn dev
 ```
