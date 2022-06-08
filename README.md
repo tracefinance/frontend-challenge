@@ -54,7 +54,7 @@ Caso você resolva fazer os seguintes itens, você ganhará um bônus durante a 
 
 ## Orientações
 
-Você deverá fazer um clone do projeto. Crie uma branch com o seu nome e sobrenome e depois instale as dependências.
+Primeiramente, faça um fork e clone do projeto. Crie uma branch com o seu nome e sobrenome e depois instale as dependências.
 
 **1. Clone do projeto** 
 ```sh
@@ -72,6 +72,8 @@ yarn install
 ```sh
 yarn dev
 ```
+
+Avaliaremos a sua **Pull Request** e se passar pelo nosso critério de avaliação inicial, marcaremos uma apresentação da aplicação. Boa sorte dev! Let's code! 
 
 
 
