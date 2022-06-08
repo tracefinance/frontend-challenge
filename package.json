@@ -13,6 +13,11 @@
     "test:watch": "jest --maxWorkers=50% --passWithNoTests --watch",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "dependencies": {
     "@stitches/react": "^1.2.8",
     "next": "12.1.6",
@@ -25,6 +30,8 @@
     }
   },
   "devDependencies": {
+    "@commitlint/cli": "17.0.2",
+    "@commitlint/config-conventional": "17.0.2",
     "@testing-library/jest-dom": "5.16.4",
     "@testing-library/react": "13.3.0",
     "@testing-library/react-hooks": "8.0.0",
@@ -44,6 +51,7 @@
     "eslint-plugin-promise": "6.0.0",
     "eslint-plugin-react": "7.30.0",
     "eslint-plugin-react-hooks": "4.5.0",
+    "husky": "8.0.1",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "msw": "0.42.1",
