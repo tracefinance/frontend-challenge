@@ -4,7 +4,7 @@ Desafio para avaliar o candidato que queira ingressar na Trace Finance como dese
 
 ## O desafio
 
-Seu objetivo é criar uma jornada simples de cadastro de usuário utlizando [Next](https://nextjs.org/), seguindo o layout. É obrigatório o uso de algum framework de estilo, que trabalhe com o conceito css-in-js. Você também pode instalar alguma outra lib, caso entenda que faça sentido.  
+Seu objetivo é criar uma jornada simples de cadastro de usuário utlizando [Next](https://nextjs.org/) e [React](https://reactjs.org/), seguindo o layout. É obrigatório o uso de algum framework de estilo, que trabalhe com o conceito css-in-js. Você também pode instalar alguma outra lib, caso entenda que faça sentido.  
 
 ## Sobre o layout
 
