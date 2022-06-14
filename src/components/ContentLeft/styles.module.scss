@@ -35,3 +35,149 @@
     width: 100%;
   }
 }
+
+.inputGroup{
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  input, textarea{
+    height: 2.37rem;
+    max-width: 33.25rem;
+    width: 100%;
+    background: var(--dark-800);
+    border: 2px solid var(--dark-500);
+    border-radius: 0.5rem;
+    
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    margin: 0.5rem 0;
+    color: var(--white);
+    font-size: 0.875rem;
+
+    &:focus{
+      outline: none;
+      border: 2px solid var(--dark-100);
+    }
+
+    &:focus ~ label{
+      transform: translateY(-14px)
+    }
+  }
+
+  select{
+    max-width: 34.8rem;
+    width: 100%;
+    background: var(--dark-800);
+    border: 2px solid var(--dark-500);
+    border-radius: 0.5rem;
+    
+    margin: 0.5rem 0;
+    color: var(--dark-500);
+    font-size: 0.875rem;
+  }
+
+  textarea{
+    height: 92px;
+    resize: none;
+    max-width: 33.4rem;
+  }
+
+  label{
+    position: absolute;
+    top: 28px;
+    left: 102px;
+    font-size: 0.8125rem;
+    color: var(--dark-500);
+    display: flex;
+
+    transition: all 0.5s ease-in-out;
+  }
+
+  select{
+    padding: 1.5rem 1.5rem 0.75rem 0.75rem;
+  }
+}
+
+.button{
+  max-width: 34.8rem;
+  width: 100%;
+  padding: 0 1.5rem;
+  height: 3rem;
+  background: var(--dark-800);
+  color: var(--dark-500);
+  border-radius: 0.5rem;
+  border: 0;
+  font-size: 1rem;
+}
+
+.inputCheck{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 2rem;
+
+  input[type=checkbox]{
+    position: relative;
+    cursor: pointer;
+    
+    margin-right: 1rem;
+  }
+
+  input[type=checkbox]::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -5px;
+    left: 0;
+    background-color: var(--dark-950);
+    border: 2px solid #FFF;
+    border-radius: 4px;
+    
+  }
+
+  input[type=checkbox]:checked::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -5px;
+    left: 0;
+    background-color: var(--green-500);
+    border: 2px solid var(--green-500);
+  }
+
+  input[type=checkbox]:checked::after{
+    content: "";
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 0px;
+    left: 8px;
+  }
+
+  label{
+    font-weight: 400;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: var(--white);
+    margin-left: 0.75rem;
+  }
+
+  
+
+  
+}
