@@ -7,10 +7,11 @@ const Home: NextPage = () => {
     name: "",
     lastName: "",
     email: "",
-    birthDate: "",
+    dateOfBirthday: "",
     password: "",
     country: "",
     bio: "",
+    receiveNotifications: "",
   });
 
   const onChangeInput = (e) =>
@@ -19,6 +20,19 @@ const Home: NextPage = () => {
   const sendRegistration = async (e) => {
     e.preventDefault();
     console.log(dataForm.name);
+    {
+      /*try {
+      const res = await fetch(
+        "https://629f52338b939d3dc29519e3.mockapi.io/api/challenge/user",
+        {
+          method: "POST",
+          body: JSON.stringify(dataForm),
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }*/
+    }
   };
 
   return (
@@ -39,7 +53,7 @@ const Home: NextPage = () => {
           rel="stylesheet"
         />
       </Head>
-      <div>
+      <section>
         <h1>Cadastre-se</h1>
         <p>Para começar, insira os dados abaixo:</p>
         <form onSubmit={sendRegistration}>
@@ -51,32 +65,69 @@ const Home: NextPage = () => {
             value={dataForm.name}
           ></input>
           <br />
-          <input type="text" name="lastName" placeholder="Sobrenome"></input>
-          <br />
-          <input type="email" name="email" placeholder="E-mail"></input>
-          <br />
           <input
             type="text"
-            name="birthDate"
-            placeholder="Data de nascimento"
+            name="lastName"
+            placeholder="Sobrenome"
+            onChange={onChangeInput}
+            value={dataForm.lastName}
           ></input>
           <br />
-          <input type="password" name="password" placeholder="Senha"></input>
+          <input
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            onChange={onChangeInput}
+            value={dataForm.email}
+          ></input>
           <br />
           <input
-            type="text"
+            type="date"
+            name="dateOfBirthday"
+            placeholder="Data de nascimento"
+            onChange={onChangeInput}
+            value={dataForm.dateOfBirthday}
+          ></input>
+          <br />
+          <input
+            type="password"
+            name="password"
+            placeholder="Senha"
+            onChange={onChangeInput}
+            value={dataForm.password}
+          ></input>
+          <br />
+          <select
             name="country"
             placeholder="Selecione seu país"
-          ></input>
+            onChange={onChangeInput}
+            value={dataForm.country}
+          >
+            <option disabled="disabled" selected="selected">
+              Selecione seu país
+            </option>
+          </select>
           <br />
-          <input type="text" name="bio" placeholder="Bio"></input>
+          <input
+            type="text"
+            name="bio"
+            placeholder="Bio"
+            onChange={onChangeInput}
+            value={dataForm.bio}
+          ></input>
           <br />
           <button type="submit">Cadastrar</button>
           <br />
-          <input type="checkbox"></input>
+          <input
+            type="checkbox"
+            name="receiveNotifications"
+            onChange={onChangeInput}
+            value={dataForm.receiveNotifications}
+          ></input>{" "}
+          <span>Desejo receber notificações</span>
           <br />
         </form>
-      </div>
+      </section>
     </div>
   );
 };
