@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 
 import { UserContextProvider } from '~/contexts/userContext'
-import { globalStyles } from '~/styles/global'
+import { globalStyles } from '~/styles'
 
 function MyApp({ Component, pageProps }: AppProps) {
   globalStyles()
