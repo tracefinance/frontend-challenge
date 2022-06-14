@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0; 
+  box-sizing: 'border-box'; 
+  font-family: 'Poppins';
+}
+
+:root{
+  --white: #FFFFFF;
+  --green-500: #00F2B1;
+  --red-500: #FA4D56;
+
+  --dark-100: #E7E7E7;
+  --dark-500: #888888;
+  --dark-800: #414141;
+  --dark-950: #202020;
+  --dark-900: #2A2A2A;
+  --dark-1000: #121212;
+}
+
+html{
+  @media(max-width: 1080px){
+    font-size: 93.75%; //15px
+  }
+  @media(max-width: 720px){
+    font-size: 87.5%; //14px
+  }
+}
+
+body{
+  background: var(--dark-1000);
+}
+
+body, input, textarea, select, button{
+  font: 400 1rem "Poppins", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+  color: var(--white);
+}

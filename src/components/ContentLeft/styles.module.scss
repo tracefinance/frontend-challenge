@@ -1,0 +1,37 @@
+.contentLeft{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+
+  background-color: var(--dark-950);
+  border-radius: 0.5rem;
+  border: 2px solid var(--dark-900);
+
+  width: 100%;
+  max-width: 44.125rem;
+  min-height: 56.375rem;
+  max-height: auto;
+
+  text-align: center;
+
+  h1{
+    font-weight: 700;
+    font-size: 1.56rem;
+    line-height: 130%;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  span{
+    color: var(--white);
+    font-size: 0.875rem;
+    line-height: 130%;
+    margin-bottom: 1.5rem;
+  }
+
+  form{
+    width: 100%;
+  }
+}
