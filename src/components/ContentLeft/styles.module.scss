@@ -138,13 +138,30 @@
   width: 100%;
   padding: 0 1.5rem;
   height: 3.5rem;
-  background: var(--dark-800);
-  color: var(--dark-500);
+  background: var(--green-500);
+  color: var(--black-1000);
   border-radius: 0.5rem;
   border: 0;
   font-size: 0.875rem;
-  font-weight: 400;
-  cursor: not-allowed;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  cursor: pointer;
+
+  transition: filter 0.2s;
+
+  &:disabled{
+    background: var(--dark-800);
+    color: var(--dark-500);
+    cursor: not-allowed;
+
+    &:hover{
+      filter: none;
+    }
+  }
+
+  &:hover{
+    filter: brightness(0.9);
+  }
 }
 
 
