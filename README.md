@@ -4,7 +4,7 @@ Desafio para avaliar o candidato que queira ingressar na Trace Finance como dese
 
 ## O desafio
 
-Seu objetivo é criar uma jornada simples de cadastro de usuário utlizando [Next](https://nextjs.org/) e [React](https://reactjs.org/), seguindo o layout. É obrigatório o uso de algum framework de estilo, que trabalhe com o conceito css-in-js. Você também pode instalar alguma outra lib, caso entenda que faça sentido.  
+Seu objetivo é criar uma jornada simples de cadastro de usuário utlizando [Next](https://nextjs.org/), seguindo o layout. É obrigatório o uso de algum framework de estilo, que trabalhe com o conceito css-in-js. Você também pode instalar alguma outra lib, caso entenda que faça sentido.  
 
 ## Sobre o layout
 
@@ -54,7 +54,7 @@ Caso você resolva fazer os seguintes itens, você ganhará um bônus durante a 
 
 ## Orientações
 
-Primeiramente, faça um fork e clone do projeto. Crie uma branch com o seu nome e sobrenome e depois instale as dependências.
+Você deverá fazer um clone do projeto. Crie uma branch com o seu nome e sobrenome e depois instale as dependências.
 
 **1. Clone do projeto** 
 ```sh
@@ -72,8 +72,6 @@ yarn install
 ```sh
 yarn dev
 ```
-
-Avaliaremos a sua **Pull Request** e se passar pelo nosso critério de avaliação inicial, marcaremos uma apresentação da aplicação. Boa sorte dev! Let's code! 
 
 
 
