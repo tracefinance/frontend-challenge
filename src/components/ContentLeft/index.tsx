@@ -1,13 +1,16 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import InputMask from 'react-input-mask';
+
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+import { ImSpinner8 } from 'react-icons/im';
 
 import { validationSchema } from '../../services/validationFields';
 
 import styles from './styles.module.scss';
 import { useState } from 'react';
 import api from '../../pages/api/hello';
-import { Router, useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 type UserSubmitForm = {
   firstName: string;
@@ -22,9 +25,10 @@ type UserSubmitForm = {
 
 export function ContentLeft(){
   const Router = useRouter();
-  const { register,  formState: { errors }, handleSubmit } = useForm<UserSubmitForm>({
+  const { register,  formState: { errors }, handleSubmit, formState } = useForm<UserSubmitForm>({
     resolver: yupResolver(validationSchema)
   })
+  const { isSubmitting } = formState;
 
   const [typePassword, setTypePassword] = useState('password');
 
@@ -41,11 +45,16 @@ export function ContentLeft(){
     receiveNotifications: false
   })
   
-  
   const onSubmit: SubmitHandler<UserSubmitForm> = async (data) => {
     try {
       const res = await api.post(`/user`, data);
       Router.push(`/feedback/${res.data.id}`)
+
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve;
+        }, 2000)
+      })
     } catch (error) {
       console.log("Aconteceu um erro! Verifique os campos.")
     }
@@ -123,14 +132,16 @@ export function ContentLeft(){
       </div>
 
       <div className={styles.inputGroup}>
-        <input 
+        <InputMask 
           type="text"
           placeholder=" "
+          mask="99/99/9999"
           {...register("dateOfBirthday")}
           className={errors.dateOfBirthday ? `${styles.isInvalid}` : ''}
           value={user.dateOfBirthday}
           onChange={changeForm}
         />
+       
         { errors.dateOfBirthday ? (<span>{errors.dateOfBirthday?.message}</span>) : (<></>) }
         <label>Data de nascimento</label>
       </div>
@@ -186,7 +197,7 @@ export function ContentLeft(){
         <label>Bio</label>
       </div>
 
-      <button className={styles.button } type="submit" disabled={handleActiveButton}>Cadastrar</button>
+      <button className={styles.button} type="submit" disabled={handleActiveButton || isSubmitting}  >{!isSubmitting ? (<p>Cadastrar</p>) : (<ImSpinner8  size={14}/>)}</button>
 
       <div className={styles.inputCheck}>
         <input 
