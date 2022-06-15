@@ -4,7 +4,9 @@ import Select from "react-select";
 import Head from "next/head";
 import { countryOptions } from "./data/countries";
 import { Button } from "../styles/components/button";
+import { Body } from "../styles/containers/body";
 import { Container } from "../styles/containers/container";
+import { FormDiv } from "../styles/containers/containerForm";
 
 const Home: NextPage = () => {
   const [dataForm, setDataForm] = useState({
@@ -74,91 +76,88 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <section className="registration">
-        <div className="max-width">
-          <h1 className="title">Cadastre-se</h1>
-          <p>Para começar, insira os dados abaixo:</p>
-          <div className="registration-content">
-            <div className="column-left">
-              {response.type === "error" ? <p>{response.message}</p> : ""}
-              {response.type === "success" ? <p>{response.message}</p> : ""}
-              <form onSubmit={sendRegistration}>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Nome"
-                  onChange={onChangeInput}
-                  value={dataForm.name}
-                ></input>
-                <br />
-                <input
-                  type="text"
-                  name="lastName"
-                  placeholder="Sobrenome"
-                  onChange={onChangeInput}
-                  value={dataForm.lastName}
-                ></input>
-                <br />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="E-mail"
-                  onChange={onChangeInput}
-                  value={dataForm.email}
-                ></input>
-                <br />
-                <input
-                  type="date"
-                  name="dateOfBirthday"
-                  placeholder="Data de nascimento"
-                  onChange={onChangeInput}
-                  value={dataForm.dateOfBirthday}
-                ></input>
-                <br />
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Senha"
-                  onChange={onChangeInput}
-                  value={dataForm.password}
-                ></input>
-                <br />
-                <Select
-                  name="country"
-                  placeholder="Selecione seu país"
-                  options={countryOptions}
-                />
-                <br />
-                <input
-                  type="text"
-                  name="bio"
-                  placeholder="Bio"
-                  onChange={onChangeInput}
-                  value={dataForm.bio}
-                ></input>
-                <br />
-                <Button type="submit">Cadastrar</Button>
-                <br />
-                <input
-                  type="checkbox"
-                  name="receiveNotifications"
-                  onChange={onChangeInput}
-                  value={dataForm.receiveNotifications}
-                ></input>{" "}
-                <span>Desejo receber notificações</span>
-                <br />
-              </form>
-            </div>
-            <div className="column-right">
-              <h1>Teste técnico</h1>
-              <p>
-                Controle suas contas nacionais e internacionais em um único
-                lugar!
-              </p>
-            </div>
-          </div>
+      <Container>
+        <div>
+          <FormDiv>
+            <h1>Cadastre-se</h1>
+            <p>Para começar, insira os dados abaixo:</p>
+            {response.type === "error" ? <p>{response.message}</p> : ""}
+            {response.type === "success" ? <p>{response.message}</p> : ""}
+            <form onSubmit={sendRegistration}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Nome"
+                onChange={onChangeInput}
+                value={dataForm.name}
+              ></input>
+              <br />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Sobrenome"
+                onChange={onChangeInput}
+                value={dataForm.lastName}
+              ></input>
+              <br />
+              <input
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                onChange={onChangeInput}
+                value={dataForm.email}
+              ></input>
+              <br />
+              <input
+                type="date"
+                name="dateOfBirthday"
+                placeholder="Data de nascimento"
+                onChange={onChangeInput}
+                value={dataForm.dateOfBirthday}
+              ></input>
+              <br />
+              <input
+                type="password"
+                name="password"
+                placeholder="Senha"
+                onChange={onChangeInput}
+                value={dataForm.password}
+              ></input>
+              <br />
+              <Select
+                name="country"
+                placeholder="Selecione seu país"
+                options={countryOptions}
+              />
+              <br />
+              <input
+                type="text"
+                name="bio"
+                placeholder="Bio"
+                onChange={onChangeInput}
+                value={dataForm.bio}
+              ></input>
+              <br />
+              <Button type="submit">Cadastrar</Button>
+              <br />
+              <input
+                type="checkbox"
+                name="receiveNotifications"
+                onChange={onChangeInput}
+                value={dataForm.receiveNotifications}
+              ></input>{" "}
+              <span>Desejo receber notificações</span>
+              <br />
+            </form>
+          </FormDiv>
+          <FormDiv form="info">
+            <h1>Teste técnico</h1>
+            <p>
+              Controle suas contas nacionais e internacionais em um único lugar!
+            </p>
+          </FormDiv>
         </div>
-      </section>
+      </Container>
     </div>
   );
 };
