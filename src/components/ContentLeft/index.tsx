@@ -11,21 +11,11 @@ import styles from './styles.module.scss';
 import { useState } from 'react';
 import api from '../../pages/api/hello';
 import { useRouter } from 'next/router';
-
-type UserSubmitForm = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  dateOfBirthday: string;
-  password: string;
-  country: string;
-  bio: string;
-  receiveNotifications: boolean;
-}
+import { UserInterface } from '../../interface/user.interface';
 
 export function ContentLeft(){
   const Router = useRouter();
-  const { register,  formState: { errors }, handleSubmit, formState } = useForm<UserSubmitForm>({
+  const { register,  formState: { errors }, handleSubmit, formState } = useForm<UserInterface>({
     resolver: yupResolver(validationSchema)
   })
   const { isSubmitting } = formState;
@@ -34,7 +24,7 @@ export function ContentLeft(){
 
   const [handleActiveButton, setHandleActiveButton] = useState(true)
   
-  const [user, setUser] = useState<UserSubmitForm>({
+  const [user, setUser] = useState<UserInterface>({
     firstName: "",
     lastName: "",
     email: "",
@@ -45,7 +35,7 @@ export function ContentLeft(){
     receiveNotifications: false
   })
   
-  const onSubmit: SubmitHandler<UserSubmitForm> = async (data) => {
+  const onSubmit: SubmitHandler<UserInterface> = async (data) => {
     try {
       const res = await api.post(`/user`, data);
       Router.push(`/feedback/${res.data.id}`)
@@ -73,12 +63,11 @@ export function ContentLeft(){
         user.password != "" && 
         user.country != "" && 
         user.bio != ""
-        ){
+    ){
       setHandleActiveButton(false)
     }else{
       setHandleActiveButton(true)
     }
-
   }
 
   function tooglePassword(){
@@ -161,9 +150,7 @@ export function ContentLeft(){
           {typePassword === 'password' ? 
             (<AiOutlineEye size={32} color="#888888"/>)
             : 
-            (
-              <AiOutlineEyeInvisible size={32} color="#888888"/>
-            )
+            (<AiOutlineEyeInvisible size={32} color="#888888"/>)
           }
         </div>
       </div>
@@ -204,9 +191,10 @@ export function ContentLeft(){
           type="checkbox" 
           id="checkbox" 
           {...register("receiveNotifications")} 
+          
           onChange={(e) => setUser({
             ...user,
-            receiveNotifications: !!e.currentTarget.checked
+            receiveNotifications: !!e.currentTarget?.checked
           })}
         />
         <label>
