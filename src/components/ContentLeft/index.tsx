@@ -1,9 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 import { validationSchema } from '../../services/validationFields';
 
 import styles from './styles.module.scss';
+import { useState } from 'react';
 
 type UserSubmitForm = {
   firstName: string;
@@ -17,11 +19,21 @@ type UserSubmitForm = {
 }
 
 export function ContentLeft(){
+  const [typePassword, setTypePassword] = useState('password');
+
   const { register,  formState: { errors }, handleSubmit } = useForm<UserSubmitForm>({
     resolver: yupResolver(validationSchema)
   })
   
   const onSubmit = handleSubmit((data) => console.log(data));
+
+  function tooglePassword(){
+    if(typePassword === 'password'){
+      setTypePassword('text')
+    }else{
+      setTypePassword('password')
+    }
+  }
 
   return(
     <div className={styles.contentLeft}>
@@ -31,6 +43,7 @@ export function ContentLeft(){
       <div className={styles.inputGroup}>
         <input 
           type="text" 
+          placeholder=" "
           {...register("firstName")}
           className={errors.firstName ? `${styles.isInvalid}` : ''}
         />
@@ -40,6 +53,7 @@ export function ContentLeft(){
       <div className={styles.inputGroup}>
         <input 
           type="text" 
+          placeholder=" "
           {...register("lastName")}
           className={errors.lastName ? `${styles.isInvalid}` : ''}
         />
@@ -49,6 +63,7 @@ export function ContentLeft(){
       <div className={styles.inputGroup}>
         <input 
           type="text"
+          placeholder=" "
           {...register("email")}
           className={errors.email ? `${styles.isInvalid}` : ''}
         />
@@ -59,6 +74,7 @@ export function ContentLeft(){
       <div className={styles.inputGroup}>
         <input 
           type="date"
+          placeholder=" "
           {...register("birthday")}
           className={errors.birthday ? `${styles.isInvalid}` : ''}
           />
@@ -68,12 +84,22 @@ export function ContentLeft(){
 
       <div className={styles.inputGroup}>
         <input 
-          type="password"
+          type={typePassword}
+          placeholder=" "
           {...register("password")}
           className={errors.password ? `${styles.isInvalid}` : ''}
           />
         { errors.password ? (<span>{errors.password?.message}</span>) : (<></>) }
         <label>Senha</label>
+        <div  onClick={tooglePassword}>
+          {typePassword === 'password' ? 
+            (<AiOutlineEye size={32} color="#888888"/>)
+            : 
+            (
+              <AiOutlineEyeInvisible size={32} color="#888888"/>
+            )
+          }
+        </div>
       </div>
 
       <div className={styles.inputGroup}>
@@ -93,6 +119,7 @@ export function ContentLeft(){
       <div className={styles.inputGroup}>
         <textarea 
           id='bio'
+          placeholder=" "
           {...register("bio")} 
           className={errors.bio ? `${styles.isInvalid}` : ''}
         />

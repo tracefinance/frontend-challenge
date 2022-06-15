@@ -47,26 +47,25 @@
   flex-direction: column;
 
   input, textarea{
-    height: 2.25rem;
+    height: 1.951rem;
     max-width: 32.25rem;
     width: 100%;
     background: var(--dark-800);
     border: 2px solid var(--dark-500);
     border-radius: 0.5rem;
     
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1rem 0.5rem 1rem;
     margin: 0.5rem 0;
     color: var(--white);
     font-size: 0.875rem;
-
-    
 
     &:focus{
       outline: none;
       border: 2px solid var(--dark-100);
     }
 
-    &:focus ~ label{
+    &:focus ~ label,
+    &:not(:placeholder-shown) + label{
       transform: translateY(-14px)
     }
   }
@@ -100,12 +99,18 @@
   label{
     position: absolute;
     top: 28px;
-    left: 96px;
+    left: 94px;
     font-size: 0.875rem;
     color: var(--dark-500);
     display: flex;
 
     transition: all 0.5s ease-in-out;
+  }
+
+  div{
+    display: flex;
+    position: absolute;
+    right: 94px;
   }
 
   select{
