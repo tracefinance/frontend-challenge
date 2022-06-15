@@ -1,8 +1,8 @@
-import { globalStyles } from '../styles/global';
 import type { AppProps } from 'next/app'
 
+import '../styles/global.scss';
+
 function MyApp({ Component, pageProps }: AppProps) {
-  globalStyles();
   return <Component {...pageProps} />
 }
 

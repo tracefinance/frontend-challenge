@@ -1,0 +1,252 @@
+.contentLeft{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+
+  background-color: var(--dark-950);
+  border-radius: 0.5rem;
+  border: 2px solid var(--dark-900);
+
+  width: 100%;
+  max-width: 44.125rem;
+  min-height: 54.1rem;
+  max-height: auto;
+
+  text-align: center;
+
+  h1{
+    font-weight: 700;
+    font-size: 1.5625rem;
+    line-height: 130%;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  span{
+    color: var(--white);
+    font-size: 0.875rem;
+    line-height: 130%;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  form{
+    width: 100%;
+  }
+}
+
+.inputGroup{
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  input, textarea{
+    height: 1.951rem;
+    max-width: 32.25rem;
+    width: 100%;
+    background: var(--dark-800);
+    border: 2px solid var(--dark-500);
+    border-radius: 0.5rem;
+    
+    padding: 0.8rem 1rem 0.5rem 1rem;
+    margin: 0.5rem 0;
+    color: var(--white);
+    font-size: 0.875rem;
+
+    &:focus{
+      outline: none;
+      border: 2px solid var(--dark-100);
+    }
+
+    &:focus ~ label,
+    &:not(:placeholder-shown) + label{
+      transform: translateY(-14px)
+    }
+  }
+
+  select{
+    max-width: 34.5rem;
+    width: 100%;
+    height: 3.5rem;
+    padding: 0.5rem 1rem !important;
+    background: var(--dark-800);
+    border: 2px solid var(--dark-500);
+    border-radius: 0.5rem;
+    
+    color: var(--dark-500);
+    font-size: 0.875rem;
+
+    &:focus{
+      outline: none;
+      border: 2px solid var(--dark-100);
+    }
+  }
+
+  textarea{
+    max-width: 32.25rem;
+    padding: 1rem 1rem !important;
+    height: 3.5rem;
+    resize: none;
+    margin-top: 1rem;
+  }
+
+  label{
+    position: absolute;
+    top: 28px;
+    left: 94px;
+    font-size: 0.875rem;
+    color: var(--dark-500);
+    display: flex;
+
+    transition: all 0.5s ease-in-out;
+  }
+
+  div{
+    display: flex;
+    position: absolute;
+    right: 94px;
+  }
+
+  select{
+    padding: 1.5rem 1.5rem 0.75rem 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  span{
+    display: flex;
+    align-self: flex-start;
+    margin-left: 80px;
+
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: var(--red-500)
+  }
+}
+
+.isInvalid{
+  border: 2px solid var(--red-500) !important;
+}
+
+.button{
+  max-width: 34.5rem;
+  width: 100%;
+  padding: 0 1.5rem;
+  height: 3.5rem;
+  background: var(--green-500);
+  color: var(--black-1000);
+  border-radius: 0.5rem;
+  border: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  cursor: pointer;
+
+  transition: filter 0.2s;
+
+  &:disabled{
+    background: var(--dark-800);
+    color: var(--dark-500);
+    cursor: not-allowed;
+
+    &:hover{
+      filter: none;
+    }
+  }
+
+  &:hover{
+    filter: brightness(0.9);
+  }
+
+  svg{
+    animation: spinner 1s linear infinite;
+  }
+
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+
+
+.inputCheck{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 2rem;
+
+  input[type=checkbox]{
+    position: relative;
+    cursor: pointer;
+    
+    margin-right: 1rem;
+  }
+
+  input[type=checkbox]::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: -5px;
+    left: 0;
+    background-color: var(--dark-950);
+    border: 2px solid #FFF;
+    border-radius: 4px;
+    
+  }
+
+  input[type=checkbox]:checked::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: -5px;
+    left: 0;
+    background-color: var(--green-500);
+    border: 2px solid var(--green-500);
+  }
+
+  input[type=checkbox]:checked::after{
+    content: "";
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: -3px;
+    left: 7px;
+  }
+
+  label{
+    font-weight: 300;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: var(--white);
+    margin-left: 0.5rem;
+  }
+
+  
+
+  
+}
