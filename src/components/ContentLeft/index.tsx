@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import styles from './styles.module.scss';
@@ -75,7 +76,7 @@ export function ContentLeft(){
         <label>Bio</label>
       </div>
 
-      <button className={styles.button} type="submit">Cadastrar</button>
+      <button className={styles.button } type="submit">Cadastrar</button>
 
       <div className={styles.inputCheck}>
         <input type="checkbox" name="checkbox" id="checkbox" />
