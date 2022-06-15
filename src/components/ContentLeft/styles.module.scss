@@ -41,6 +41,10 @@
   position: relative;
   margin-top: 0;
   margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
   input, textarea{
     height: 2.25rem;
@@ -54,6 +58,8 @@
     margin: 0.5rem 0;
     color: var(--white);
     font-size: 0.875rem;
+
+    
 
     &:focus{
       outline: none;
@@ -106,6 +112,20 @@
     padding: 1.5rem 1.5rem 0.75rem 0.75rem;
     margin-top: 0.5rem;
   }
+
+  span{
+    display: flex;
+    align-self: flex-start;
+    margin-left: 80px;
+
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: var(--red-500)
+  }
+}
+
+.isInvalid{
+  border: 2px solid var(--red-500) !important;
 }
 
 .button{
@@ -119,6 +139,7 @@
   border: 0;
   font-size: 0.875rem;
   font-weight: 400;
+  cursor: not-allowed;
 }
 
 
