@@ -15,39 +15,55 @@ type UserSubmitForm = {
   password: string;
   country: string;
   bio: string;
-  isReciveNotification: boolean;
+  isReceiveNotification: boolean;
 }
 
 export function ContentLeft(){
-  const [typePassword, setTypePassword] = useState('password');
-  const [firstName, setFirsName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [birthday, setBirthday] = useState('');
-  const [password, setPassword] = useState('');
-  const [country, setCountry] = useState('');
-  const [bio, setBio] = useState('');
-  const [isReciveNotification, setIsReciveNotification] = useState(false);
-  
-
   const { register,  formState: { errors }, handleSubmit } = useForm<UserSubmitForm>({
     resolver: yupResolver(validationSchema)
   })
+
+  const [typePassword, setTypePassword] = useState('password');
+
+  const [handleActiveButton, setHandleActiveButton] = useState(true)
   
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const [user, setUser] = useState<UserSubmitForm>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    birthday: "",
+    password: "",
+    country: "",
+    bio: "",
+    isReceiveNotification: false
+  })
+  
+  const onSubmit = handleSubmit((data) => {
+    console.log(data)
+  });
+
+  const changeForm = (e: any) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    })
+
+    if( user.firstName != "" && user.lastName != ""
+      && user.email != "" && user.birthday != ""
+      && user.password != "" && user.country != "" 
+      && user.bio != "" && user.isReceiveNotification == true){
+      setHandleActiveButton(false)
+    }else{
+      setHandleActiveButton(true)
+    }
+
+  }
 
   function tooglePassword(){
     if(typePassword === 'password'){
       setTypePassword('text')
     }else{
       setTypePassword('password')
-    }
-  }
-
-  function handleSetDisabled(){
-    if(!firstName || !lastName || !email || !birthday ||
-       !country || !password || !bio || !isReciveNotification ){
-      return true
     }
   }
 
@@ -62,7 +78,8 @@ export function ContentLeft(){
           placeholder=" "
           {...register("firstName")}
           className={errors.firstName ? `${styles.isInvalid}` : ''}
-          onChange={(e) => setFirsName(e.target.value)}
+          value={user.firstName}
+          onChange={changeForm}
         />
         { errors.firstName ? (<span>{errors.firstName?.message}</span>) : (<></>) }
         <label>Nome</label>
@@ -73,7 +90,8 @@ export function ContentLeft(){
           placeholder=" "
           {...register("lastName")}
           className={errors.lastName ? `${styles.isInvalid}` : ''}
-          onChange={(e) => setLastName(e.target.value)}
+          value={user.lastName}
+          onChange={changeForm}
         />
         { errors.lastName ? (<span>{errors.lastName?.message}</span>) : (<></>) }
         <label>Sobrenome</label>
@@ -84,7 +102,8 @@ export function ContentLeft(){
           placeholder=" "
           {...register("email")}
           className={errors.email ? `${styles.isInvalid}` : ''}
-          onChange={(e) => setEmail(e.target.value)}
+          value={user.email}
+          onChange={changeForm}
         />
         { errors.email ? (<span>{errors.email?.message}</span>) : (<></>) }
         <label>E-mail</label>
@@ -96,8 +115,9 @@ export function ContentLeft(){
           placeholder=" "
           {...register("birthday")}
           className={errors.birthday ? `${styles.isInvalid}` : ''}
-          onChange={(e) => setBirthday(e.target.value)}
-          />
+          value={user.birthday}
+          onChange={changeForm}
+        />
         { errors.birthday ? (<span>{errors.birthday?.message}</span>) : (<></>) }
         <label>Data de nascimento</label>
       </div>
@@ -108,8 +128,9 @@ export function ContentLeft(){
           placeholder=" "
           {...register("password")}
           className={errors.password ? `${styles.isInvalid}` : ''}
-          onChange={(e) => setPassword(e.target.value)}
-          />
+          value={user.password}
+          onChange={changeForm}
+        />
         { errors.password ? (<span>{errors.password?.message}</span>) : (<></>) }
         <label>Senha</label>
         <div  onClick={tooglePassword}>
@@ -128,7 +149,8 @@ export function ContentLeft(){
           id='country'
           {...register("country")}
           className={errors.country ? `${styles.isInvalid}` : ''}
-          onChange={(e) => setCountry(e.target.value)}
+          value={user.country}
+          onChange={changeForm}
         >
           <option value="" hidden>Selecione o seu pais:</option>
           <option value="Brasil">Brasil</option>  
@@ -144,20 +166,24 @@ export function ContentLeft(){
           placeholder=" "
           {...register("bio")} 
           className={errors.bio ? `${styles.isInvalid}` : ''}
-          onChange={(e) => setBio(e.target.value)}
+          value={user.bio}
+          onChange={changeForm}
         />
         { errors.bio ? (<span>{errors.bio?.message}</span>) : (<></>) }
         <label>Bio</label>
       </div>
 
-      <button className={styles.button } type="submit" disabled={handleSetDisabled()}>Cadastrar</button>
+      <button className={styles.button } type="submit" disabled={handleActiveButton}>Cadastrar</button>
 
       <div className={styles.inputCheck}>
         <input 
           type="checkbox" 
           id="checkbox" 
-          {...register("isReciveNotification")} 
-          onChange={(e) => setIsReciveNotification(true)}
+          {...register("isReceiveNotification")} 
+          onChange={(e) => setUser({
+            ...user,
+            isReceiveNotification: !!e.currentTarget.checked
+          })}
         />
         <label>
           Desejo receber notificações
