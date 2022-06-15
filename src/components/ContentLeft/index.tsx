@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
@@ -6,19 +6,22 @@ import { validationSchema } from '../../services/validationFields';
 
 import styles from './styles.module.scss';
 import { useState } from 'react';
+import api from '../../pages/api/hello';
+import { Router, useRouter } from 'next/router';
 
 type UserSubmitForm = {
   firstName: string;
   lastName: string;
   email: string;
-  birthday: string;
+  dateOfBirthday: string;
   password: string;
   country: string;
   bio: string;
-  isReceiveNotification: boolean;
+  receiveNotifications: boolean;
 }
 
 export function ContentLeft(){
+  const Router = useRouter();
   const { register,  formState: { errors }, handleSubmit } = useForm<UserSubmitForm>({
     resolver: yupResolver(validationSchema)
   })
@@ -31,16 +34,22 @@ export function ContentLeft(){
     firstName: "",
     lastName: "",
     email: "",
-    birthday: "",
+    dateOfBirthday: "",
     password: "",
     country: "",
     bio: "",
-    isReceiveNotification: false
+    receiveNotifications: false
   })
   
-  const onSubmit = handleSubmit((data) => {
-    console.log(data)
-  });
+  
+  const onSubmit: SubmitHandler<UserSubmitForm> = async (data) => {
+    try {
+      const res = await api.post(`/user`, data);
+      Router.push(`/feedback/${res.data.id}`)
+    } catch (error) {
+      console.log("Aconteceu um erro! Verifique os campos.")
+    }
+  };
 
   const changeForm = (e: any) => {
     setUser({
@@ -48,10 +57,14 @@ export function ContentLeft(){
       [e.target.name]: e.target.value
     })
 
-    if( user.firstName != "" && user.lastName != ""
-      && user.email != "" && user.birthday != ""
-      && user.password != "" && user.country != "" 
-      && user.bio != "" && user.isReceiveNotification == true){
+    if( user.firstName != "" && 
+        user.lastName != "" &&
+        user.email != "" && 
+        user.dateOfBirthday != "" &&
+        user.password != "" && 
+        user.country != "" && 
+        user.bio != ""
+        ){
       setHandleActiveButton(false)
     }else{
       setHandleActiveButton(true)
@@ -71,7 +84,7 @@ export function ContentLeft(){
     <div className={styles.contentLeft}>
     <h1>Cadastre-se</h1>
     <span>Para começar, insira seus dados abaixo:</span>
-    <form onSubmit={onSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.inputGroup}>
         <input 
           type="text" 
@@ -113,12 +126,12 @@ export function ContentLeft(){
         <input 
           type="text"
           placeholder=" "
-          {...register("birthday")}
-          className={errors.birthday ? `${styles.isInvalid}` : ''}
-          value={user.birthday}
+          {...register("dateOfBirthday")}
+          className={errors.dateOfBirthday ? `${styles.isInvalid}` : ''}
+          value={user.dateOfBirthday}
           onChange={changeForm}
         />
-        { errors.birthday ? (<span>{errors.birthday?.message}</span>) : (<></>) }
+        { errors.dateOfBirthday ? (<span>{errors.dateOfBirthday?.message}</span>) : (<></>) }
         <label>Data de nascimento</label>
       </div>
 
@@ -179,10 +192,10 @@ export function ContentLeft(){
         <input 
           type="checkbox" 
           id="checkbox" 
-          {...register("isReceiveNotification")} 
+          {...register("receiveNotifications")} 
           onChange={(e) => setUser({
             ...user,
-            isReceiveNotification: !!e.currentTarget.checked
+            receiveNotifications: !!e.currentTarget.checked
           })}
         />
         <label>

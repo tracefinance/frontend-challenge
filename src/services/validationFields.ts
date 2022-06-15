@@ -8,7 +8,7 @@ export const validationSchema = Yup.object().shape({
   email: Yup.string()
     .required('E-mail é obrigatório')
     .email('E-mail inválido'),
-  birthday: Yup.string()
+  dateOfBirthday: Yup.string()
     .required('Data de aniversário é obrigatório'),
   password: Yup.string()
     .required('Senha é obrigatório'),
