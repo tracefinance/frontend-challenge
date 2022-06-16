@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { styled } from "../stitches.config";
 import { useState, useMemo } from "react";
 import Select from "react-select";
 import Head from "next/head";

@@ -2,7 +2,7 @@ import { styled } from "../../stitches.config";
 
 export const Input = styled("input", {
   width: "100%",
-  backgroundColor: "gainsboro",
+  backgroundColor: "rgba(39, 38, 44, 0.2)",
   border: "1px solid gray",
   borderRadius: 5,
   fontSize: 12,
@@ -12,10 +12,10 @@ export const Input = styled("input", {
   paddingBottom: 10,
   paddingLeft: 16,
   paddingRight: 16,
-  marginTop: 10,
-  marginBottom: 10,
+  marginTop: 6,
+  marginBottom: 6,
   "&:hover": {
-    backgroundColor: "#cccccc",
+    border: "1px solid white",
   },
   when: {
     sm: {
