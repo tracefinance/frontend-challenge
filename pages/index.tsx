@@ -4,6 +4,7 @@ import Select from "react-select";
 import Head from "next/head";
 import { countryOptions } from "./data/countries";
 import { Button } from "../styles/components/button";
+import { Input } from "../styles/components/input";
 import { Body } from "../styles/containers/body";
 import { Container } from "../styles/containers/container";
 import { FormDiv } from "../styles/containers/containerForm";
@@ -58,7 +59,7 @@ const Home: NextPage = () => {
     }
   };
   return (
-    <div>
+    <Body>
       <Head>
         <title>Create Next App</title>
         <meta name="robots" content="index/follow" />
@@ -84,45 +85,45 @@ const Home: NextPage = () => {
             {response.type === "error" ? <p>{response.message}</p> : ""}
             {response.type === "success" ? <p>{response.message}</p> : ""}
             <form onSubmit={sendRegistration}>
-              <input
+              <Input
                 type="text"
                 name="name"
                 placeholder="Nome"
                 onChange={onChangeInput}
                 value={dataForm.name}
-              ></input>
+              ></Input>
               <br />
-              <input
+              <Input
                 type="text"
                 name="lastName"
                 placeholder="Sobrenome"
                 onChange={onChangeInput}
                 value={dataForm.lastName}
-              ></input>
+              ></Input>
               <br />
-              <input
+              <Input
                 type="email"
                 name="email"
                 placeholder="E-mail"
                 onChange={onChangeInput}
                 value={dataForm.email}
-              ></input>
+              ></Input>
               <br />
-              <input
+              <Input
                 type="date"
                 name="dateOfBirthday"
                 placeholder="Data de nascimento"
                 onChange={onChangeInput}
                 value={dataForm.dateOfBirthday}
-              ></input>
+              ></Input>
               <br />
-              <input
+              <Input
                 type="password"
                 name="password"
                 placeholder="Senha"
                 onChange={onChangeInput}
                 value={dataForm.password}
-              ></input>
+              ></Input>
               <br />
               <Select
                 name="country"
@@ -130,13 +131,14 @@ const Home: NextPage = () => {
                 options={countryOptions}
               />
               <br />
-              <input
+              <Input
+                bio="info"
                 type="text"
                 name="bio"
                 placeholder="Bio"
                 onChange={onChangeInput}
                 value={dataForm.bio}
-              ></input>
+              ></Input>
               <br />
               <Button type="submit">Cadastrar</Button>
               <br />
@@ -158,7 +160,7 @@ const Home: NextPage = () => {
           </FormDiv>
         </div>
       </Container>
-    </div>
+    </Body>
   );
 };
 
