@@ -1,16 +1,17 @@
 import { styled } from "../../stitches.config";
 
 export const FormDiv = styled("div", {
-  maxWidth: 300,
+  maxWidth: 600,
   margin: 20,
-  padding: 20,
+  padding: "30px 50px 30px 50px",
   border: "1px solid gray",
   borderRadius: 5,
   float: "left",
+  alignItems: "center",
   variants: {
     form: {
       info: {
-        maxWidth: 200,
+        padding: 20,
         float: "right",
         border: "none",
       },
