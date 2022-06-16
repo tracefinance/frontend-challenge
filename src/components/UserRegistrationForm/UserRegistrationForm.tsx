@@ -1,31 +1,31 @@
 import { useForm } from 'react-hook-form'
 
 import { ErrorMessage } from '@hookform/error-message'
-import { styled } from '@stitches/react'
 
 import { User, Countries } from '~/@types/user'
+import { Button } from '~/components/Inputs/Button'
 import { LabelledCheckbox } from '~/components/Inputs/LabelledCheckbox'
 import { LabelledTextarea } from '~/components/Inputs/LabelledTextarea'
 import { LabelledTextfield } from '~/components/Inputs/LabelledTextfield'
 import { Select } from '~/components/Inputs/Select'
 import { ValidationMessage } from '~/components/ValidationMessage'
-import { emailPattern } from '~/utils/patterns'
+import { stitches } from '~/styles'
+import { emailPattern, datePattern } from '~/utils/regex'
 
 export type UserRegisterData = { password: string } & Omit<User, 'id'>
 
 type Props = {
   onSubmit: (data: UserRegisterData) => Promise<void>
-  isLoading: boolean
 }
-export const UserRegistrationForm = ({ onSubmit, isLoading }: Props) => {
+export const UserRegistrationForm = ({ onSubmit }: Props) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<UserRegisterData>()
+    formState: { errors, isValid, isSubmitted },
+  } = useForm<UserRegisterData>({ mode: 'all' })
 
   return (
-    <form
+    <Form
       aria-label="formulário de cadastro"
       onSubmit={handleSubmit((data) => {
         onSubmit(data)
@@ -81,7 +81,10 @@ export const UserRegistrationForm = ({ onSubmit, isLoading }: Props) => {
           aria-invalid={!!errors.email?.message}
           {...register('email', {
             required: 'Precisamos do seu e-mail',
-            pattern: emailPattern,
+            pattern: {
+              value: emailPattern,
+              message: 'E-mail inválido',
+            },
           })}
         />
         <ErrorMessage
@@ -102,6 +105,10 @@ export const UserRegistrationForm = ({ onSubmit, isLoading }: Props) => {
           aria-invalid={!!errors.dateOfBirthday?.message}
           {...register('dateOfBirthday', {
             required: 'Precisamos da sua data de nascimento',
+            pattern: {
+              value: datePattern,
+              message: 'Formato inválido. Use o formato DD/MM/AAAA',
+            },
           })}
         />
         <ErrorMessage
@@ -141,7 +148,7 @@ export const UserRegistrationForm = ({ onSubmit, isLoading }: Props) => {
       <InputWrapper>
         <Select
           id="country"
-          label="País"
+          label="Selecione seu país"
           aria-errormessage="err-country"
           aria-invalid={!!errors.country?.message}
           {...register('country', {
@@ -162,25 +169,39 @@ export const UserRegistrationForm = ({ onSubmit, isLoading }: Props) => {
       </InputWrapper>
 
       {/* Submit button */}
-      <button type="submit">
-        {isLoading ? 'Cadastrando...' : 'Cadastrar'}
-      </button>
+      <Button
+        disabled={!isValid}
+        color={isValid ? (isSubmitted ? 'secondary' : 'primary') : 'gray'}
+        css={!isValid ? { cursor: 'not-allowed' } : {}}
+        type="submit"
+      >
+        {isSubmitted ? 'Cadastrando...' : 'Cadastrar'}
+      </Button>
 
       {/* Notificações */}
-      <LabelledCheckbox
-        id="notifications"
-        label="Desejo receber notificações"
-        {...register('receiveNotifications')}
-      />
-    </form>
+      <CheckboxWrapper>
+        <LabelledCheckbox
+          id="notifications"
+          label="Desejo receber notificações"
+          {...register('receiveNotifications')}
+        />
+      </CheckboxWrapper>
+    </Form>
   )
 }
 
-const InputWrapper = styled(`div`, {
+const Form = stitches('form', {
   display: 'flex',
   flexDirection: 'column',
+  gap: '$4',
+})
 
-  '& input': {
-    padding: '0.5rem',
-  },
+const InputWrapper = stitches(`div`, {
+  display: 'flex',
+  flexDirection: 'column',
+})
+
+const CheckboxWrapper = stitches(`div`, {
+  display: 'flex',
+  justifyContent: 'center',
 })

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.0",
+    "@radix-ui/react-icons": "^1.1.1",
     "@stitches/react": "^1.2.8",
     "lodash.get": "^4.4.2",
     "next": "12.1.6",
