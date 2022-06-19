@@ -10,6 +10,14 @@ export const toLongDate = (date: string, locale = 'pt-BR'): string => {
 }
 
 /**
+ * Replaces slashes with dashes and reverses the order of a string
+ * @param str date string in format dd/mm/yyyy
+ * @returns date string in format yyyy-mm-dd
+ */
+export const formatDateString = (str: string) =>
+  str.split('/').reverse().join('-')
+
+/**
  * Fix the 1 day off javascript date problem with timezones (temporally)
  * TODO: Fix it in a better way
  * https://dev.to/zachgoll/a-complete-guide-to-javascript-dates-and-why-your-date-is-off-by-1-day-fi1

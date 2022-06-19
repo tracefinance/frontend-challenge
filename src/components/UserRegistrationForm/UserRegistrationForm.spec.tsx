@@ -112,7 +112,6 @@ describe('User Registration Form', () => {
 
       expect(dateOfBirthday).toHaveAttribute('id', 'dateOfBirthday')
       expect(dateOfBirthday).toHaveAttribute('name', 'dateOfBirthday')
-      expect(dateOfBirthday).toHaveAttribute('type', 'date')
       expect(dateOfBirthday).toHaveAttribute('autocomplete', 'bday')
       // Accessibility
       expect(dateOfBirthday).toHaveAttribute('aria-label', 'Data de nascimento')
@@ -123,8 +122,8 @@ describe('User Registration Form', () => {
         'dateOfBirthday',
       )
 
-      await user.type(dateOfBirthday, '2022-11-10')
-      expect(dateOfBirthday).toHaveValue('2022-11-10')
+      await user.type(dateOfBirthday, '02/11/2000')
+      expect(dateOfBirthday).toHaveValue('02/11/2000')
     })
 
     it('Senha', async () => {
@@ -218,7 +217,7 @@ describe('User Registration Form', () => {
         await user.type(firstName, 'Alisson')
         await user.type(lastName, 'Schwanz')
         await user.type(email, 'alisson@mail.com')
-        await user.type(dateOfBirthday, '2000-01-01')
+        await user.type(dateOfBirthday, '18/11/2022')
         await user.type(password, '123456')
         await user.selectOptions(country, 'Brasil')
         await user.type(bio, 'I love music')
@@ -231,7 +230,7 @@ describe('User Registration Form', () => {
             firstName: 'Alisson',
             lastName: 'Schwanz',
             email: 'alisson@mail.com',
-            dateOfBirthday: '2000-01-01',
+            dateOfBirthday: '2022-11-18',
             password: '123456',
             country: 'brazil',
             bio: 'I love music',

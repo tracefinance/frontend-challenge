@@ -10,7 +10,8 @@ import { LabelledTextfield } from '~/components/Inputs/LabelledTextfield'
 import { Select } from '~/components/Inputs/Select'
 import { ValidationMessage } from '~/components/ValidationMessage'
 import { stitches } from '~/styles'
-import { emailPattern, datePattern } from '~/utils/regex'
+import { formatDateString } from '~/utils/date'
+import { emailPattern, datePattern, handleDateMask } from '~/utils/regex'
 
 export type UserRegisterData = { password: string } & Omit<User, 'id'>
 
@@ -24,13 +25,21 @@ export const UserRegistrationForm = ({ onSubmit }: Props) => {
     formState: { errors, isValid, isSubmitted },
   } = useForm<UserRegisterData>({ mode: 'all' })
 
+  const onSubmitHandler = handleSubmit((data) => {
+    onSubmit({
+      ...data,
+      dateOfBirthday: formatDateString(data.dateOfBirthday),
+    })
+  })
+
+  const handleDateValidation = (date: string) => {
+    if (isNaN(new Date(formatDateString(date)).getTime())) {
+      return 'Data de nascimento inválida'
+    }
+  }
+
   return (
-    <Form
-      aria-label="formulário de cadastro"
-      onSubmit={handleSubmit((data) => {
-        onSubmit(data)
-      })}
-    >
+    <Form aria-label="formulário de cadastro" onSubmit={onSubmitHandler}>
       {/* Nome */}
       <InputWrapper>
         <LabelledTextfield
@@ -99,16 +108,17 @@ export const UserRegistrationForm = ({ onSubmit }: Props) => {
         <LabelledTextfield
           id="dateOfBirthday"
           label="Data de nascimento"
-          type="date"
           autoComplete="bday"
           aria-errormessage="err-dateOfBirthday"
           aria-invalid={!!errors.dateOfBirthday?.message}
+          onKeyUp={handleDateMask}
           {...register('dateOfBirthday', {
             required: 'Precisamos da sua data de nascimento',
             pattern: {
               value: datePattern,
               message: 'Formato inválido. Use o formato DD/MM/AAAA',
             },
+            validate: handleDateValidation,
           })}
         />
         <ErrorMessage
