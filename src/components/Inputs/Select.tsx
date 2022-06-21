@@ -10,6 +10,8 @@ export type SelectProps = {
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ id, label, options, ...props }, ref) => {
+    const [isDefault, setIsDefault] = React.useState(true)
+
     return (
       <Wrapper>
         <SelectStyle
@@ -18,6 +20,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           aria-label={label}
           defaultValue=""
           {...props}
+          onChange={() => setIsDefault(false)}
+          css={!isDefault ? { color: '$white' } : {}}
         >
           <option disabled value="">
             Selecione seu país
@@ -48,7 +52,7 @@ const SelectStyle = stitches('select', {
   appearance: 'none',
   background: 'transparent',
   fontSize: '$sm',
-  color: '$dark100',
+  color: '$dark500',
   px: '$4',
   height: '$14',
   outline: 'none',
@@ -59,6 +63,7 @@ const SelectStyle = stitches('select', {
   '&:focus': {
     outline: '1.5px solid $dark100',
     border: 'none',
+    color: '$white',
   },
 
   'option:first-child': {
