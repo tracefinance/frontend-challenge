@@ -1,5 +1,7 @@
 import React, { forwardRef, SelectHTMLAttributes } from 'react'
 
+import { ChevronDownIcon } from '@radix-ui/react-icons'
+
 import { stitches } from '~/styles'
 
 export type SelectProps = {
@@ -32,6 +34,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             </option>
           ))}
         </SelectStyle>
+        <ChevronDownIcon />
       </Wrapper>
     )
   },
@@ -44,10 +47,27 @@ const Wrapper = stitches('div', {
   border: '1px solid $dark800',
   borderRadius: '$md',
   position: 'relative',
+
+  '& > svg': {
+    position: 'absolute',
+    top: '50%',
+    right: '$2',
+    transform: 'translateY(-50%)',
+    height: '$10',
+    width: '$10',
+    px: '$2',
+    color: '$dark500',
+    cursor: 'pointer',
+    transition: 'color .3s ease-in',
+    pointerEvents: 'none',
+  },
+
+  '&:hover > svg': {
+    color: '$dark300',
+    transition: 'none',
+  },
 })
 
-// TODO: add right arrow icon to the select
-// and make it look like the design
 const SelectStyle = stitches('select', {
   appearance: 'none',
   background: 'transparent',
