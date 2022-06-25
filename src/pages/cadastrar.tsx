@@ -97,15 +97,23 @@ const BackgroundImage = stitches('div', {
   zIndex: -1,
 
   '@lg': {
+    position: 'fixed',
     minHeight: '100%',
+    width: 'auto',
     top: 0,
     bottom: 0,
-    right: '-14%',
   },
 })
 
 const BrandInfoContainer = stitches('div', {
   flex: '1 0 auto',
+
+  '@lg': {
+    position: 'sticky',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    bottom: '10%',
+  },
 })
 
 const FormContainer = stitches('div', {
@@ -119,7 +127,7 @@ const BrandInfo = stitches('div', {
   ml: 'clamp(1rem, 18vw - 2rem, 18rem)',
 
   '@lg': {
-    ml: 0,
+    mx: 'auto',
   },
 
   h1: {
