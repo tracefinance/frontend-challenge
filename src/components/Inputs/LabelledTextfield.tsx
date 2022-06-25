@@ -67,11 +67,11 @@ const Container = stitches('div', {
 })
 
 const Input = stitches(BaseInput, {
-  '&:not(:placeholder-shown)': {
+  '&:not(:placeholder-shown), &:focus': {
     paddingTop: '$4',
   },
 
-  '&:not(:placeholder-shown) + label': {
+  '&:not(:placeholder-shown) + label, &:focus + label': {
     display: 'revert',
     fontSize: '$xs',
     color: '$dark300',
