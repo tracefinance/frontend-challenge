@@ -97,8 +97,8 @@ Listagem de Transações
 
 3. **Filtros:**
 
-   - **Status** (select/dropdown): Todos, Completed, Pending, Failed
-   - **Currency** (select/dropdown): Todos, BRL, USD, EUR
+   - **Status** (Tab): Todos, Completed, Pending, Failed
+   - **Tipo** (select/dropdown): PIX, TED
    - **Data** (date range picker): Período, de -> até, mês de inicio, mês de fim
    - Botão "Aplicar Filtros"
    - Botão "Limpar Filtros"
