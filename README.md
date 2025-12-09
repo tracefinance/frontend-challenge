@@ -24,7 +24,7 @@ A aplicação deve ser responsiva, testável e seguir as melhores práticas de d
 
 ### 📦 O que forneceremos:
 
-- ✅ Base URL da API com endpoints funcionais (Faker.js)
+- ✅ Base URL da API com endpoints funcionais
 - ✅ Documentação dos endpoints
 - ✅ Exemplos de payloads
 
