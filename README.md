@@ -1,80 +1,452 @@
-# :nail_care: Frontend challenge - Cadastro de usuário
+# 🚀 Front-end Challenge — Transaction Management
 
-Desafio para avaliar o candidato que queira ingressar na Trace Finance como desenvolvedor frontend
+Desafio para avaliar engenheiros(as) front-end sênior na Trace Finance.
 
-## O desafio
+## 📋 Sobre este Desafio
 
-Seu objetivo é criar uma jornada simples de cadastro de usuário utlizando [Next](https://nextjs.org/) e [React](https://reactjs.org/), seguindo o layout. É obrigatório o uso de algum framework de estilo, que trabalhe com o conceito css-in-js. Você também pode instalar alguma outra lib, caso entenda que faça sentido.  
+Este desafio tem como objetivo avaliar suas habilidades em construir uma aplicação front-end moderna, escalável e testável, utilizando as principais tecnologias e padrões que adotamos na Trace Finance.
 
-## Sobre o layout
+### 🔀 Como iniciar:
 
-O [layout](https://www.figma.com/file/bVq19HGbDCOCScIwLIBnbp/Teste-t%C3%A9cnico?node-id=0%3A1) fornecido não é muito complexo, nosso maior interesse é ver como você reutliza código e resolve os desafios. 
+1. **Projeto novo**: Crie um projeto Next.js do zero (recomendado)
+2. **Starter template**: Você pode usar qualquer template/boilerplate que preferir
 
-## Sobre a API
+---
 
-Temos duas rotas de uma API de usuário para que você possa desenvolver a aplicação 
+## 📝 Contexto
 
-```sh
-"https://629f52338b939d3dc29519e3.mockapi.io/api/challenge"
+Você deve construir uma aplicação de **gerenciamento de transações** com:
+
+- ✅ **Formulário multi-step** para criar transações (2 etapas com sidebar)
+- ✅ **Listagem paginada** com filtros, pesquisa e paginação
+
+A aplicação deve ser responsiva, testável e seguir as melhores práticas de desenvolvimento front-end.
+
+### 📦 O que forneceremos:
+
+- ✅ Base URL da API com endpoints funcionais (Faker.js)
+- ✅ Documentação dos endpoints
+- ✅ Exemplos de payloads
+
+### 📊 Resumo Visual do Fluxo:
+
 ```
-#### Criar usuário
-```
-POST /user
-{
-    "firstName": String,
-    "lastName": String,
-    "email": String,
-    "password": String,
-    "country": String,
-    "dateOfBirthday": Date,
-    "bio": String,
-    "receiveNotifications": Boolean
-}
-```
-#### Obter dados do usuário
-```
-GET /user/:id
-```
-## O que será avaliado ?
-
-- HTML semântico, limpo e claro
-- CSS responsivo, semântico, reutilizável e seguindo boas práticas
-- Tipagem 
-- Componentização
-- Conhecimento em javascript 
-- Utilização correta do git 
-
-## Bônus
-
-Caso você resolva fazer os seguintes itens, você ganhará um bônus durante a avaliação do seu teste:
-
-- Utilizar [Stitches](https://stitches.dev/)
-- Máscara nos campos 
-- Testes
-
-## Orientações
-
-Primeiramente, faça um fork e clone do projeto. Crie uma branch com o seu nome e sobrenome e depois instale as dependências.
-
-**1. Clone do projeto** 
-```sh
-git clone "https://github.com/tracefinance/frontend-challenge.git"
-```
-**2. Criando nova branch**
-```sh
-git checkout -b "meunomeEsobrenome"
-```
-**3. Instalando as dependências**
-```sh
-yarn install
-```
-**4. Agora é rodar a aplicação**
-```sh
-yarn dev
+Listagem de Transações
+    ├─→ Filtros (Status, Currency, Data)
+    ├─→ Pesquisa
+    ├─→ Paginação
+    └─→ Botão "Nova Transação"
+         ↓
+    Formulário Multi-Step
+         ├─→ Step 1: Info Básicas (Descrição, Tipo, Valor, CPF/CNPJ)
+         └─→ Step 2: Detalhes (campos condicionais por tipo)
+              ↓
+         Submissão → API → Redirect para Listagem
 ```
 
-Avaliaremos a sua **Pull Request** e se passar pelo nosso critério de avaliação inicial, marcaremos uma apresentação da aplicação. Boa sorte dev! Let's code! 
+---
 
+## 🛠 Tecnologias (obrigatórias)
 
+### Core Stack
 
+- **Framework**: Next.js 14+ (App Router ou Pages Router)
+- **Linguagem**: TypeScript
+- **Gerenciamento de Estado**: Zustand, Redux Toolkit ou Context API + hooks
+- **Formulários**: React Hook Form + Yup/Zod (validação)
+- **HTTP Client**: Axios, Fetch API, React query (diferencial) ou biblioteca de sua escolha
+- **Estilização**: Styled Components, Tailwind CSS, Stitches, PandaCSS, etc.
 
+### Testing
+
+- **Testes Unitários/Integração**: Jest + Testing Library
+
+### Código e Qualidade
+
+- **Linting**: ESLint com regras TypeScript
+- **Formatação**: Prettier
+- **Commits**: Conventional Commits (recomendado)
+
+---
+
+## 🎯 Funcionalidades Obrigatórias
+
+### 1. Listagem de Transações (Página Principal)
+
+#### Interface
+
+**Tabela com colunas:**
+
+- ID
+- Tipo (PIX/TED/SWIFT)
+- Valor (formatado em BRL)
+- Status (badge colorido)
+- Data/Hora
+
+**Funcionalidades obrigatórias:**
+
+1. **Paginação**
+
+   - Controles: Infinite Scroll
+   - Exibir "Mostrando X-Y de Z resultados"
+
+2. **Pesquisa** (campo de texto) - Pro pair programming, implementar debounce + pesquisa
+
+   - Busca por descrição ou ID
+   - Aplicar ao pressionar Enter ou botão
+
+3. **Filtros:**
+
+   - **Status** (select/dropdown): Todos, Completed, Pending, Failed
+   - **Currency** (select/dropdown): Todos, BRL, USD, EUR
+   - **Data** (date range picker): Período, de -> até, mês de inicio, mês de fim
+   - Botão "Aplicar Filtros"
+   - Botão "Limpar Filtros"
+
+4. **Estados:**
+
+   - Loading (skeleton table)
+   - Empty state (sem resultados)
+   - Error state (falha na API)
+
+5. **Botão "Nova Transação"**
+   - Redireciona para o formulário multi-step
+
+---
+
+### 2. Formulário Multi-Step (Criar Transação)
+
+Formulário com **2 etapas** e **sidebar lateral** indicando o step atual.
+
+#### Layout do Formulário
+
+**Desktop:**
+
+```
+┌─────────────────┬──────────────────────────────┐
+│  Sidebar       │  Área Principal            │
+│                │                            │
+│  ● Step 1      │  [Campos do Step Ativo]    │
+│    Informações │                            │
+│                │                            │
+│  ○ Step 2      │                            │
+│    Detalhes    │                            │
+│                │                            │
+│                │[Voltar] [Próximo/Confirmar]│
+└─────────────────┴──────────────────────────────┘
+```
+
+**Mobile:**
+
+- Sidebar pode ficar horizontal no topo ou como stepper
+- Campos empilhados verticalmente
+
+**Navegação:**
+
+- Botão "Voltar": Retorna ao step anterior (ou página de listagem se no Step 1)
+- Botão "Próximo" (Step 1): Avança para Step 2
+- Botão "Confirmar" (Step 2): Submete o formulário
+
+#### Step 1 - Informações Básicas
+
+**Campos:**
+
+1. **Descrição** (input texto, **opcional**)
+2. **Tipo de Transação** (select, **obrigatório**)
+   - Opções: `PIX`, `TED`
+3. **Valor** (input texto, **obrigatório**, máscara de moeda BRL) BE trabalha em centavos
+4. **CPF/CNPJ** (input texto com máscara, **obrigatório**)
+
+**Comportamento:**
+
+- Botão "Próximo" habilitado apenas com campos obrigatórios válidos
+- Validação em tempo real (mostrar erros abaixo dos campos)
+- Não permitir avançar com campos inválidos
+
+#### Step 2 - Detalhes da Transação
+
+**Campos condicionais baseados no "Tipo de Transação" do Step 1:**
+
+**Se PIX:**
+
+- Chave PIX (input texto, obrigatório)
+- Tipo de Chave (select: CPF, Email, Telefone, Aleatória)
+
+**Se TED:**
+
+- Banco (select com lista de bancos)
+- Agência (input texto, obrigatório)
+- Conta (input texto, obrigatório)
+- Tipo de Conta (select: Corrente, Poupança)
+
+**Comportamento:**
+
+- **"Voltar"**: Retorna ao Step 1 com todos os dados preservados
+- **"Confirmar"**: Envia os dados para a API (endpoint fornecido)
+  - Modal de confirmação (diferencial)
+  - Após sucesso: Redireciona para listagem
+  - Após erro: Exibe mensagem de erro
+- **Ao retornar para o formulário após confirmação**: Campos limpos (reset completo)
+
+**Validações:**
+
+- Todos os campos condicionais devem ter validação apropriada
+- Exibir mensagens de erro abaixo dos campos
+
+---
+
+## 🌐 API (Fornecida)
+
+### Endpoints que forneceremos:
+
+Api base url: `https://fe-challenge-trace-api-production.up.railway.App`
+Api prefix: `/api`
+
+Endpoints: `/transaction` (GET, POST)
+
+Todas as informações da api podem ser encontradas em [API_README.md](API_README.md)
+
+#### `GET /api/transactions`
+
+**Query Params:**
+
+- `page` (number): Página atual
+- `limit` (number): Items por página
+- `search` (string): Busca por descrição/ID
+- `status` (string): COMPLETED | PENDING | FAILED
+- `currency` (string): BRL | USD | EUR
+- `startDate` (string): Data início (ISO 8601)
+- `endDate` (string): Data fim (ISO 8601)
+
+Mostrar filtro ativo em formato de Badge
+
+---
+
+## 🎨 UI/UX Requirements
+
+### Design System
+
+- Usar theme
+- Tokens para cores, fontes, etc.
+- Dark mode (diferencial)
+- Criar componentes customizados básicos
+
+### Componentes Necessários
+
+- `Button` (primary, secondary)
+- `Input` / `InputMask` (para CPF/CNPJ, moeda)
+- `Select` / `Dropdown`
+- `DatePicker` (para filtro de data)
+- `Badge` (para status)
+- `Table`
+- `Skeleton` (loading states)
+- `EmptyState`
+- `Sidebar` (para o multi-step form)
+
+### Responsividade
+
+- **Mobile** (< 768px): Stack vertical, sidebar do form pode ser horizontal no topo
+- **Desktop** (≥ 768px): Layout padrão com sidebar lateral
+- Tabela responsiva (scroll horizontal em mobile ou cards)
+
+## 🏗 Arquitetura e Boas Práticas
+
+### Padrões de Código
+
+- ✅ **DRY**: Não repetir código
+- ✅ **Single Responsibility**: Componentes com responsabilidade única
+- ✅ **Custom Hooks**: Extrair lógica reutilizável
+- ✅ **Type Safety**: Tipar tudo (evitar `any`)
+- ✅ **Validações**: Usar schemas (Yup/Zod)
+- ✅ **Error Handling**: Tratamento apropriado de erros
+
+## 🧪 Testes (Jest + Testing Library)
+
+### O que testar (prioridade):
+
+1. **Formulário Multi-Step**
+
+   - ✅ Navegação entre steps
+   - ✅ Persistência de dados ao voltar
+   - ✅ Validação de campos obrigatórios
+   - ✅ Validação de máscaras (CPF/CNPJ)
+   - ✅ Renderização condicional de campos (Step 2)
+   - ✅ Submissão do formulário
+
+2. **Listagem**
+
+   - ✅ Renderização da tabela
+   - ✅ Estados: loading, empty, error
+   - ✅ Filtros e pesquisa
+   - ✅ Paginação
+
+3. **Custom Hooks**
+
+   - ✅ Hooks de estado do formulário
+   - ✅ Hooks de API (se houver)
+
+4. **Componentes UI**
+   - ✅ Componentes críticos (Badge, Input, etc.)
+
+---
+
+## 📝 Pré-requisitos (Eliminatórios)
+
+- ✅ Repositório privado no GitHub
+- ✅ TypeScript configurado
+- ✅ Next.js 14+
+- ✅ Todas as 3 funcionalidades implementadas:
+  - Formulário multi-step completo
+  - Listagem com filtros, pesquisa e paginação
+- ✅ Testes unitários
+- ✅ Formulários com validação
+- ✅ Gerenciamento de estado
+- ✅ Loading, error e empty states
+- ✅ Responsivo (mobile e desktop)
+- ✅ README com:
+  - Instruções de instalação
+  - Como rodar o projeto
+  - Como rodar os testes
+  - Variáveis de ambiente necessárias
+- ✅ Lint sem erros
+- ✅ Testes passando (`yarn test` ou `npm test`)
+- ✅ `.env.example` fornecido
+
+---
+
+## 🌟 Diferenciais (Seria Legal Ter)
+
+### Código e Arquitetura
+
+- 🎯 Arquitetura modular bem organizada (feature-based)
+- 🎯 Custom hooks bem abstraídos e reutilizáveis
+- 🎯 Error Boundary implementado
+- 🎯 Abstrações de serviços HTTP (camada de API bem estruturada)
+- 🎯 Path aliases configurados no TypeScript
+- 🎯 Documentação de componentes (Storybook ou similar)
+
+### UX/UI
+
+- ✨ Dark mode (Diferencial)
+- ✨ Animações e transições suaves
+- ✨ Toast notifications (feedback de ações)
+- ✨ Confirmação antes de submeter formulário
+- ✨ Skeleton screens customizados
+
+### Testing e Qualidade
+
+- 🧪 Cobertura de testes
+- 🔧 Husky + lint-staged
+- 🔧 Commitlint
+
+### Extras
+
+- 🌐 Internacionalização (PT/EN) - opcional
+- 🚀 Deploy em produção (Vercel, Netlify, etc.)
+
+---
+
+## 📤 Submissão
+
+1. ✅ Crie um fork do repositório
+2. ✅ Dê permissão de leitura para o usuário que indicarmos no repositório privado
+3. ✅ No README, inclua:
+   - Instruções de instalação
+   - Como rodar o projeto
+   - Como rodar os testes
+   - Principais decisões técnicas
+   - Tempo aproximado de desenvolvimento
+   - Melhorias futuras (se tiver)
+
+---
+
+## 🔍 Critérios de Avaliação
+
+### Código (30%)
+
+- Qualidade e organização
+- TypeScript: tipos bem definidos, uso correto
+- Padrões e boas práticas (DRY, SOLID, etc.)
+- Componentização e reutilização
+- Performance
+
+### Arquitetura (25%)
+
+- Estrutura de pastas lógica
+- Separação de responsabilidades
+- Gerenciamento de estado eficiente
+- Abstrações apropriadas
+
+### Testes (20%)
+
+- Cobertura de código
+- Qualidade dos testes
+- Casos de borda
+- Testes de componentes críticos
+
+### UI/UX (15%)
+
+- Design responsivo
+- Estados de loading, error e empty
+- Feedback ao usuário
+- Usabilidade
+
+### Documentação (10%)
+
+- README completo
+- Código legível
+- Decisões documentadas
+
+---
+
+## ⏱️ Prazo
+
+**2-3 dias** a partir do recebimento do desafio e da Base URL da API.
+
+Se precisar de mais tempo, entre em contato conosco.
+
+---
+
+## ❓ Dúvidas
+
+Envie e-mail para `frontend@trace.finance` com o assunto **"Dúvida - Desafio Front-end"**.
+
+---
+
+**Boa sorte! 🚀**
+
+Estamos ansiosos para ver sua solução!
+
+Opção 5: Real-World Scenario (30-40 min)
+Setup: Simule uma demanda real do dia a dia
+Cenário: "O PM pediu uma mudança urgente"
+
+> "Precisamos adicionar um campo 'Observações' no formulário de transação. Deve aparecer apenas para transações do tipo TED e SWIFT, não PIX. É opcional mas se preenchido, deve ter no mínimo 10 caracteres."
+> O que avaliar:
+> ✅ Compreensão: Faz perguntas de clarificação?
+> ✅ Impacto: Identifica onde precisa mexer (Step 2, validação, API, testes)
+> ✅ Execução: Implementa de forma incremental e testável
+> ✅ Comunicação: Avisa sobre possíveis problemas/edge cases
+
+Etapa 2 - Pair Programming
+
+Warm-up & Revisão do Projeto
+
+- Candidato explica decisões arquiteturais do desafio
+- Vocês fazem perguntas sobre escolhas
+
+Desafio Principal
+
+- Escolher 1 dos cenários acima
+- Pair programming ativo (você navega ou observa)
+
+Discussão Técnica
+
+- "Como você escalaria essa aplicação para 50 filtros?"
+- "Como lidaria com autenticação real?"
+- "Como implementaria testes E2E para isso?"
+
+Wrap-up
+
+- Feedback para o candidato
+- Espaço para perguntas
