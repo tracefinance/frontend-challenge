@@ -124,15 +124,15 @@ Formulário com **2 etapas** e **sidebar lateral** indicando o step atual.
 
 ```
 ┌─────────────────┬──────────────────────────────┐
-│  Sidebar       │  Área Principal            │
-│                │                            │
-│  ● Step 1      │  [Campos do Step Ativo]    │
-│    Informações │                            │
-│                │                            │
-│  ○ Step 2      │                            │
-│    Detalhes    │                            │
-│                │                            │
-│                │[Voltar] [Próximo/Confirmar]│
+│  Sidebar        │  Área Principal              │
+│                 │                              │
+│  ● Step 1       │  [Campos do Step Ativo]      │
+│    Informações  │                              │
+│                 │                              │
+│  ○ Step 2       │                              │
+│    Detalhes     │                              │
+│                 │                              │
+│                 │[Voltar] [Próximo/Confirmar]  │
 └─────────────────┴──────────────────────────────┘
 ```
 
