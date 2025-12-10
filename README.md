@@ -262,35 +262,7 @@ Mostrar filtro ativo em formato de Badge
 
 ## 🧪 Testes (Jest + Testing Library)
 
-### O que testar (prioridade):
-
-1. **Formulário Multi-Step**
-
-   - ✅ Navegação entre steps
-   - ✅ Persistência de dados ao voltar
-   - ✅ Validação de campos obrigatórios
-   - ✅ Validação de máscaras (CPF/CNPJ)
-   - ✅ Renderização condicional de campos (Step 2)
-   - ✅ Submissão do formulário
-
-2. **Listagem**
-
-   - ✅ Renderização da tabela
-   - ✅ Estados: loading, empty, error
-   - ✅ Filtros e pesquisa
-   - ✅ Paginação
-
-3. **Custom Hooks**
-
-   - ✅ Hooks de estado do formulário
-   - ✅ Hooks de API (se houver)
-
-4. **Componentes UI**
-   - ✅ Componentes críticos (Badge, Input, etc.)
-
----
-
-## 📝 Pré-requisitos (Eliminatórios)
+## 📝 Pré-requisitos
 
 - ✅ Repositório privado no GitHub
 - ✅ TypeScript configurado
@@ -310,7 +282,6 @@ Mostrar filtro ativo em formato de Badge
   - Variáveis de ambiente necessárias
 - ✅ Lint sem erros
 - ✅ Testes passando (`yarn test` ou `npm test`)
-- ✅ `.env.example` fornecido
 
 ---
 
@@ -360,45 +331,6 @@ Mostrar filtro ativo em formato de Badge
 
 ---
 
-## 🔍 Critérios de Avaliação
-
-### Código (30%)
-
-- Qualidade e organização
-- TypeScript: tipos bem definidos, uso correto
-- Padrões e boas práticas (DRY, SOLID, etc.)
-- Componentização e reutilização
-- Performance
-
-### Arquitetura (25%)
-
-- Estrutura de pastas lógica
-- Separação de responsabilidades
-- Gerenciamento de estado eficiente
-- Abstrações apropriadas
-
-### Testes (20%)
-
-- Cobertura de código
-- Qualidade dos testes
-- Casos de borda
-- Testes de componentes críticos
-
-### UI/UX (15%)
-
-- Design responsivo
-- Estados de loading, error e empty
-- Feedback ao usuário
-- Usabilidade
-
-### Documentação (10%)
-
-- README completo
-- Código legível
-- Decisões documentadas
-
----
-
 ## ⏱️ Prazo
 
 **2-3 dias** a partir do recebimento do desafio e da Base URL da API.
@@ -414,39 +346,3 @@ Envie e-mail para `frontend@trace.finance` com o assunto **"Dúvida - Desafio Fr
 ---
 
 **Boa sorte! 🚀**
-
-Estamos ansiosos para ver sua solução!
-
-Opção 5: Real-World Scenario (30-40 min)
-Setup: Simule uma demanda real do dia a dia
-Cenário: "O PM pediu uma mudança urgente"
-
-> "Precisamos adicionar um campo 'Observações' no formulário de transação. Deve aparecer apenas para transações do tipo TED e SWIFT, não PIX. É opcional mas se preenchido, deve ter no mínimo 10 caracteres."
-> O que avaliar:
-> ✅ Compreensão: Faz perguntas de clarificação?
-> ✅ Impacto: Identifica onde precisa mexer (Step 2, validação, API, testes)
-> ✅ Execução: Implementa de forma incremental e testável
-> ✅ Comunicação: Avisa sobre possíveis problemas/edge cases
-
-Etapa 2 - Pair Programming
-
-Warm-up & Revisão do Projeto
-
-- Candidato explica decisões arquiteturais do desafio
-- Vocês fazem perguntas sobre escolhas
-
-Desafio Principal
-
-- Escolher 1 dos cenários acima
-- Pair programming ativo (você navega ou observa)
-
-Discussão Técnica
-
-- "Como você escalaria essa aplicação para 50 filtros?"
-- "Como lidaria com autenticação real?"
-- "Como implementaria testes E2E para isso?"
-
-Wrap-up
-
-- Feedback para o candidato
-- Espaço para perguntas
