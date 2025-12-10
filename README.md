@@ -298,7 +298,8 @@ Mostrar filtro ativo em formato de Badge
 
 ### UX/UI
 
-- ✨ Dark mode (Diferencial)
+- ✨ Dark mode
+- ✨ Alteração de lingua com i18n
 - ✨ Animações e transições suaves
 - ✨ Toast notifications (feedback de ações)
 - ✨ Confirmação antes de submeter formulário
