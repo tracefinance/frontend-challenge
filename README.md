@@ -78,7 +78,7 @@ Listagem de Transações
 **Tabela com colunas:**
 
 - ID
-- Tipo (PIX/TED/SWIFT)
+- Tipo (PIX/TED)
 - Valor (formatado em BRL)
 - Status (badge colorido)
 - Data/Hora
