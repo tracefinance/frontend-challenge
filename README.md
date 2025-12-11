@@ -90,20 +90,16 @@ Listagem de Transações
    - Controles: Infinite Scroll
    - Exibir "Mostrando X-Y de Z resultados"
 
-2. **Pesquisa** (campo de texto) - Pro pair programming, implementar debounce + pesquisa
-
-   - Busca por descrição ou ID
-   - Aplicar ao pressionar Enter ou botão
-
-3. **Filtros:**
+2. **Filtros:**
 
    - **Status** (Tab): Todos, Completed, Pending, Failed
    - **Tipo** (select/dropdown): PIX, TED
    - **Data** (date range picker): Período, de -> até, mês de inicio, mês de fim
    - Botão "Aplicar Filtros"
    - Botão "Limpar Filtros"
+   - Mostrar filtros ativos com componente de Badge
 
-4. **Estados:**
+3. **Estados:**
 
    - Loading (skeleton table)
    - Empty state (sem resultados)
@@ -299,7 +295,7 @@ Mostrar filtro ativo em formato de Badge
 ### UX/UI
 
 - ✨ Dark mode
-- ✨ Alteração de lingua com i18n
+- ✨ Botão para alteração de lingua
 - ✨ Animações e transições suaves
 - ✨ Toast notifications (feedback de ações)
 - ✨ Confirmação antes de submeter formulário
@@ -313,7 +309,7 @@ Mostrar filtro ativo em formato de Badge
 
 ### Extras
 
-- 🌐 Internacionalização (PT/EN) - opcional
+- 🌐 Internacionalização (PT/EN) - i18n
 - 🚀 Deploy em produção (Vercel, Netlify, etc.)
 
 ---
