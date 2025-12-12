@@ -6,6 +6,8 @@ Desafio para avaliar engenheiros(as) front-end sênior na Trace Finance.
 
 Este desafio tem como objetivo avaliar suas habilidades em construir uma aplicação front-end moderna, escalável e testável, utilizando as principais tecnologias e padrões que adotamos na Trace Finance.
 
+Figma do teste: https://www.figma.com/design/YXzBTEwElRuxRVssHg465f/Teste-t%C3%A9cnico?node-id=0-1&m=dev&t=0krnC3qtatApObzH-1
+
 ### 🔀 Como iniciar:
 
 1. **Projeto novo**: Crie um projeto Next.js do zero (recomendado)
