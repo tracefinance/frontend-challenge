@@ -332,7 +332,7 @@ Mostrar filtro ativo em formato de Badge
 
 ## ⏱️ Prazo
 
-**2-3 dias** a partir do recebimento do desafio e da Base URL da API.
+**2-3 dias** a partir do recebimento do desafio.
 
 Se precisar de mais tempo, entre em contato conosco.
 
