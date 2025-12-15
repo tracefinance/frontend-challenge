@@ -340,7 +340,7 @@ Se precisar de mais tempo, entre em contato conosco.
 
 ## ❓ Dúvidas
 
-Envie e-mail para `frontend@trace.finance` com o assunto **"Dúvida - Desafio Front-end"**.
+Envie e-mail com o assunto **"Dúvida - Desafio Front-end"**.
 
 ---
 
