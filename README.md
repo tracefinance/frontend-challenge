@@ -94,7 +94,7 @@ Listagem de Transações
 
 2. **Filtros:**
 
-   - **Status** (Tab): Todos, Completed, Pending, Failed
+   - **Status** (Tab): Todos, Completed, Pending, Failed (FILTRO DE STATUS) -> Seguir esse filtro ao invés do Figma
    - **Tipo** (select/dropdown): PIX, TED
    - **Data** (date range picker): Período, de -> até, mês de inicio, mês de fim
    - Botão "Aplicar Filtros"
