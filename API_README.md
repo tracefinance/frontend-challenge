@@ -35,7 +35,8 @@ GET /api/transactions
 | `limit`     | number | Não         | 20     | Itens por página (máx: 100)                          |
 | `search`    | string | Não         | -      | Buscar por descrição ou ID da transação              |
 | `status`    | string | Não         | -      | Filtrar por status: `COMPLETED`, `PENDING`, `FAILED` |
-| `currency`  | string | Não         | -      | Filtrar por moeda: `BRL`, `USD`, `EUR`               |
+| `currency`  | string | Não         | -      | Filtrar por tipo: `PIX`, `TED`,                      |
+| `type`      | string | Não         | -      | Filtrar por moeda: `BRL`, `USD`, `EUR`               |
 | `startDate` | string | Não         | -      | Filtrar a partir da data (formato ISO 8601)          |
 | `endDate`   | string | Não         | -      | Filtrar até a data (formato ISO 8601)                |
 
